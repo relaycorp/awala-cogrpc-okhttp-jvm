@@ -1,0 +1,6 @@
+{
+  "name": "relaynet-cogrpc-jvm-okhttp",
+  "devDependencies": {
+    "gradle-semantic-release-plugin": "^1.4.8"
+  }
+}

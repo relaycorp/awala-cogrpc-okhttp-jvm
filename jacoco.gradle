@@ -1,0 +1,59 @@
+jacoco {
+  toolVersion = "0.8.5"
+}
+
+def jacocoFiles = files([
+  fileTree(
+    dir: project.buildDir,
+    includes: [
+      "classes/kotlin/main/**"
+    ],
+    excludes: [
+      '**/*Stub*.*'
+    ]
+  )
+])
+
+tasks.jacocoTestReport {
+  classDirectories.from = jacocoFiles
+
+  reports {
+    xml.enabled = true
+    html.enabled = true
+    html.destination = file("$buildDir/reports/coverage")
+  }
+}
+
+tasks.jacocoTestCoverageVerification {
+  afterEvaluate {
+    classDirectories.from = jacocoFiles
+  }
+
+  violationRules {
+    rule {
+      limit {
+        counter = "CLASS"
+        value = "MISSEDCOUNT"
+        maximum = "0".toBigDecimal()
+      }
+
+      limit {
+        counter = "METHOD"
+        value = "MISSEDCOUNT"
+        maximum = "0".toBigDecimal()
+      }
+    }
+  }
+}
+
+tasks.test {
+  useJUnitPlatform()
+  testLogging {
+    events("passed", "skipped", "failed")
+  }
+  finalizedBy("jacocoTestReport")
+  doLast {
+    println("View code coverage at:")
+    println("file://$buildDir/reports/coverage/index.html")
+  }
+}
