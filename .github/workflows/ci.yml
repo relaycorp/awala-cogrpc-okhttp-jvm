@@ -9,7 +9,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         # Test LTS releases
         java: [8, 11]
-    name: "java${{ matrix.java }}-${{ matrix.os }}"  # Do not change; used by protected branches
+    name: "java${{ matrix.java }}-${{ matrix.os }}" # Do not change; used by protected branches
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v1
@@ -40,33 +40,9 @@ jobs:
           node-version: 12
       - name: Install Node.js dependencies
         run: npm install
-
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.5'
-      - name: Generate docs
-        run: |
-          # Jekyll docs:
-          gem install bundler
-          cd docs
-          bundle install --path vendor/bundle
-          bundle exec jekyll build
-          cd ..
-
-          # API docs:
-          ./gradlew dokka
-
       - name: Release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BINTRAY_USERNAME: relaybot
           BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
-
-      - name: Publish documentation
-        uses: peaceiris/actions-gh-pages@v3.6.1
-        with:
-          publish_branch: gh-pages
-          publish_dir: ./build/docs
-          allow_empty_commit: false
-          github_token: ${{ secrets.GITHUB_TOKEN }}
