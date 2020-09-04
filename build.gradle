@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 buildscript{
   ext {
     kotlinVersion = '1.4.0'
-    grpcVersion = '1.31.1'
   }
 }
 
@@ -23,15 +22,19 @@ group = "tech.relaycorp"
 
 repositories {
   jcenter()
+  maven { url 'https://jitpack.io' }
 }
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
-  implementation "io.grpc:grpc-okhttp:$grpcVersion"
+  api 'com.github.relaycorp:relaynet-cogrpc-jvm:PR43-SNAPSHOT'
+  api "io.grpc:grpc-okhttp:1.31.1"
 
   // Testing
   testImplementation "org.junit.jupiter:junit-jupiter:5.6.2"
+  testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+  testImplementation "org.mockito:mockito-inline:3.5.5"
 }
 
 java {
