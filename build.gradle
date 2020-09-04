@@ -22,7 +22,6 @@ group = "tech.relaycorp"
 
 repositories {
   jcenter()
-  maven { url 'https://jitpack.io' }
 }
 
 dependencies {
