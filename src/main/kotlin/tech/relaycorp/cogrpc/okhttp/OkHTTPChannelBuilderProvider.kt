@@ -29,6 +29,7 @@ class OkHTTPChannelBuilderProvider internal constructor() {
     companion object {
         private val INSTANCE = OkHTTPChannelBuilderProvider()
 
+        @JvmStatic
         fun makeBuilder(
             address: InetSocketAddress,
             trustManager: PrivateSubnetTrustManager?
