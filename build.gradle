@@ -28,8 +28,9 @@ repositories {
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
-  api 'com.github.relaycorp:relaynet-cogrpc-jvm:PR43-SNAPSHOT'
-  api "io.grpc:grpc-okhttp:1.31.1"
+  // Use version ranges to make it easy to upgrade the related dependencies in the application code
+  api 'tech.relaycorp:relaynet-cogrpc:[1.1.2,2.0.0)'
+  api "io.grpc:grpc-okhttp:[1.31.1,2.0.0)"
 
   // Testing
   testImplementation "org.junit.jupiter:junit-jupiter:5.6.2"
