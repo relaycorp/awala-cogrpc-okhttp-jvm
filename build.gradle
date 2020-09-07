@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 buildscript{
   ext {
     kotlinVersion = '1.4.0'
-    grpcVersion = '1.31.1'
   }
 }
 
@@ -28,10 +27,15 @@ repositories {
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
-  implementation "io.grpc:grpc-okhttp:$grpcVersion"
+  // Use a version range to make it easy to upgrade the CogRPC library in the application code
+  api 'tech.relaycorp:relaynet-cogrpc:[1.1.2,2.0.0)'
+
+  api "io.grpc:grpc-okhttp:1.31.1"
 
   // Testing
   testImplementation "org.junit.jupiter:junit-jupiter:5.6.2"
+  testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+  testImplementation "org.mockito:mockito-inline:3.5.5"
 }
 
 java {
