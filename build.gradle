@@ -30,7 +30,7 @@ dependencies {
   // Use a version range to make it easy to upgrade the CogRPC library in the application code
   api 'tech.relaycorp:relaynet-cogrpc:[1.1.2,2.0.0)'
 
-  api "io.grpc:grpc-okhttp:1.31.1"
+  api "io.grpc:grpc-okhttp:1.32.1"
 
   // Testing
   testImplementation "org.junit.jupiter:junit-jupiter:5.6.2"
