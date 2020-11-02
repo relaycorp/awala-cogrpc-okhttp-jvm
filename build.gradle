@@ -22,18 +22,16 @@ group = "tech.relaycorp"
 
 repositories {
   jcenter()
-
-  // TODO: Remove once CogRPC has been approved for inclusion in JCenter
-  maven { url  "https://dl.bintray.com/relaycorp/maven" }
 }
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
   // Use a version range to make it easy to upgrade the CogRPC library in the application code
-  api 'tech.relaycorp:cogrpc:[1.1.5,2.0.0)'
+  api 'tech.relaycorp:cogrpc:[1.1.6,2.0.0)'
 
-  api "io.grpc:grpc-okhttp:[1.33.1,2.0.0)"
+  // Pin an old grpc-java version: https://github.com/relaycorp/relaynet-courier-android/issues/231
+  api "io.grpc:grpc-okhttp:1.32.2"
 
   // Testing
   testImplementation "org.junit.jupiter:junit-jupiter:5.7.0"
