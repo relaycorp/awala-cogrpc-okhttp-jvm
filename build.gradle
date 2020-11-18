@@ -31,7 +31,7 @@ dependencies {
   api 'tech.relaycorp:cogrpc:[1.1.6,2.0.0)'
 
   // Pin an old grpc-java version: https://github.com/relaycorp/relaynet-courier-android/issues/231
-  api "io.grpc:grpc-okhttp:1.32.2"
+  api "io.grpc:grpc-okhttp:1.33.1"
 
   // Testing
   testImplementation "org.junit.jupiter:junit-jupiter:5.7.0"
