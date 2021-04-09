@@ -9,7 +9,7 @@ buildscript{
 plugins {
   id("org.jetbrains.kotlin.jvm") version "$kotlinVersion"
   id('java-library')
-  id("org.jetbrains.dokka") version "0.10.0"
+  id("org.jetbrains.dokka") version "1.4.30"
   id("com.diffplug.spotless") version "5.11.1"
   id('jacoco')
   id('idea')
