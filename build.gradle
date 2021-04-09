@@ -20,6 +20,7 @@ plugins {
 }
 
 apply from: 'jacoco.gradle'
+apply from: 'release.gradle'
 
 group = "tech.relaycorp"
 
