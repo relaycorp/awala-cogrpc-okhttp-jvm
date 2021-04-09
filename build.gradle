@@ -10,10 +10,13 @@ plugins {
   id("org.jetbrains.kotlin.jvm") version "$kotlinVersion"
   id('java-library')
   id("org.jetbrains.dokka") version "0.10.0"
-  id('maven-publish')
   id("com.diffplug.spotless") version "5.11.0"
   id('jacoco')
   id('idea')
+
+  id('signing')
+  id('maven-publish')
+  id("io.github.gradle-nexus.publish-plugin") version "1.0.0"
 }
 
 apply from: 'jacoco.gradle'
@@ -21,6 +24,9 @@ apply from: 'jacoco.gradle'
 group = "tech.relaycorp"
 
 repositories {
+  mavenCentral()
+
+  // TODO: Remove once all of Dokka's dependencies are available on Maven Central
   jcenter()
 }
 
@@ -58,53 +64,6 @@ tasks.withType(KotlinCompile).all {
 tasks.dokka {
   outputFormat = "html"
   outputDirectory = "$buildDir/javadoc"
-}
-
-// Publishing
-
-publishing {
-  publications {
-    create("default", MavenPublication) {
-      from(components["java"])
-
-      pom {
-        name.set(rootProject.name)
-        description.set("OkHTTP channel for Relaynet CogRPC binding")
-        url.set("https://github.com/relaycorp/relaynet-cogrpc-jvm-okhttp")
-        developers {
-          developer {
-            id.set("relaycorp")
-            name.set("Relaycorp, Inc.")
-            email.set("no-reply@relaycorp.tech")
-          }
-        }
-        licenses {
-          license {
-            name.set("Apache-2.0")
-          }
-        }
-        scm {
-          connection.set("scm:git:https://github.com/relaycorp/relaynet-cogrpc-jvm-okhttp.git")
-          developerConnection.set(
-            "scm:git:https://github.com/relaycorp/relaynet-cogrpc-jvm-okhttp.git"
-          )
-          url.set("https://github.com/relaycorp/relaynet-cogrpc-jvm-okhttp")
-        }
-      }
-    }
-  }
-  repositories {
-    maven {
-      // publish=1 automatically publishes the version
-      url = uri(
-        "https://api.bintray.com/maven/relaycorp/maven/tech.relaycorp.cogrpc.okhttp/;publish=1"
-      )
-      credentials {
-        username = System.getenv("BINTRAY_USERNAME")
-        password = System.getenv("BINTRAY_KEY")
-      }
-    }
-  }
 }
 
 // Lint
