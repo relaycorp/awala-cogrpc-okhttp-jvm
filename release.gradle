@@ -15,7 +15,7 @@ publishing {
             pom {
                 name.set(rootProject.name)
                 description.set("DNS-over-HTTPS library")
-                url.set("https://github.com/relaycorp/doh-jvm")
+                url.set("https://github.com/relaycorp/awala-cogrpc-okhttp-jvm")
                 developers {
                     developer {
                         id.set("relaycorp")
@@ -29,11 +29,11 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("scm:git:https://github.com/relaycorp/doh-jvm.git")
+                    connection.set("scm:git:https://github.com/relaycorp/awala-cogrpc-okhttp-jvm.git")
                     developerConnection.set(
-                            "scm:git:https://github.com/relaycorp/doh-jvm.git"
+                            "scm:git:https://github.com/relaycorp/awala-cogrpc-okhttp-jvm.git"
                     )
-                    url.set("https://github.com/relaycorp/doh-jvm")
+                    url.set("https://github.com/relaycorp/awala-cogrpc-okhttp-jvm")
                 }
             }
         }
