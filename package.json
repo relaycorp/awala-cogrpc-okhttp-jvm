@@ -1,5 +1,5 @@
 {
-  "name": "relaynet-cogrpc-jvm-okhttp",
+  "name": "awala-cogrpc-okhttp-jvm",
   "devDependencies": {
     "gradle-semantic-release-plugin": "^1.4.8"
   }
