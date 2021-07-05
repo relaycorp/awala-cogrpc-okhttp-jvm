@@ -9,7 +9,6 @@ buildscript{
 plugins {
   id("org.jetbrains.kotlin.jvm") version "$kotlinVersion"
   id('java-library')
-  id("org.jetbrains.dokka") version "0.10.0"
   id("com.diffplug.spotless") version "5.14.0"
   id('jacoco')
   id('idea')
@@ -26,9 +25,6 @@ group = "tech.relaycorp"
 
 repositories {
   mavenCentral()
-
-  // TODO: Remove once all of Dokka's dependencies are available on Maven Central
-  jcenter()
 }
 
 dependencies {
@@ -58,13 +54,6 @@ tasks.withType(KotlinCompile).all {
     "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
     "-Xuse-experimental=kotlin.time.ExperimentalTime"
   ]
-}
-
-// Documentation
-
-tasks.dokka {
-  outputFormat = "html"
-  outputDirectory = "$buildDir/javadoc"
 }
 
 // Lint
