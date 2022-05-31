@@ -30,13 +30,13 @@ repositories {
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
-  api 'tech.relaycorp:cogrpc:[1.1.6,2.0.0)'
-  api "io.grpc:grpc-okhttp:[1.32.2,2.0.0)"
+  api 'tech.relaycorp:cogrpc:[1.1.21,2.0.0)'
+  api "io.grpc:grpc-okhttp:[1.46.0,2.0.0)"
 
   // Testing
   testImplementation "org.junit.jupiter:junit-jupiter:5.8.2"
   testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
-  testImplementation "org.mockito:mockito-inline:4.4.0"
+  testImplementation "org.mockito:mockito-inline:4.6.0"
 }
 
 java {
