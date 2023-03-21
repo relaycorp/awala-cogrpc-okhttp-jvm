@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript{
   ext {
-    kotlinVersion = '1.6.21'
+    kotlinVersion = '1.8.10'
   }
 }
 
@@ -30,7 +30,7 @@ repositories {
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
-  api 'tech.relaycorp:cogrpc:[1.1.24,2.0.0)'
+  api 'tech.relaycorp:cogrpc:[1.1.29,2.0.0)'
   api "io.grpc:grpc-okhttp:[1.47.0,2.0.0)"
 
   // Testing
