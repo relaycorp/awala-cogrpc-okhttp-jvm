@@ -4,9 +4,9 @@ jacoco {
 
 tasks.jacocoTestReport {
   reports {
-    xml.enabled = true
-    html.enabled = true
-    html.destination = file("$buildDir/reports/coverage")
+    xml.required = true
+    html.required = true
+    html.outputLocation = file("$buildDir/reports/coverage")
   }
 }
 
