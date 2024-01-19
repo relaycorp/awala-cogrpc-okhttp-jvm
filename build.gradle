@@ -45,7 +45,7 @@ java {
 }
 
 tasks.withType(KotlinCompile).configureEach {
-  kotlinOptions.jvmTarget = "1.8"
+  kotlinOptions.jvmTarget = JavaVersion.VERSION_17
 }
 
 tasks.withType(KotlinCompile).all {
