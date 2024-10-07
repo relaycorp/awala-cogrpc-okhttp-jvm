@@ -34,7 +34,7 @@ dependencies {
   api "io.grpc:grpc-okhttp:[1.61.0,2.0.0)"
 
   // Testing
-  testImplementation "org.junit.jupiter:junit-jupiter:5.11.0"
+  testImplementation "org.junit.jupiter:junit-jupiter:5.11.2"
   testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
   testImplementation "org.mockito:mockito-inline:5.2.0"
 }
